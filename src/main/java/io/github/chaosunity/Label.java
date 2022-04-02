@@ -13,7 +13,7 @@ public final class Label {
     public @NotNull String message;
     public @NotNull Ansi.Color color;
     public @Nullable String note;
-    public int Priority = 0;
+    public int priority = 0;
 
     public Label(@NotNull String sourceId, @NotNull TextSpan span, @NotNull String message) {
         location = null;
@@ -57,5 +57,20 @@ public final class Label {
         }
 
         return source.GetSourceSpan(location, length);
+    }
+
+    public Label withColor(Ansi.Color color) {
+        this.color = color;
+        return this;
+    }
+
+    public Label withNote(String note) {
+        this.note = note;
+        return this;
+    }
+
+    public Label withPriority(int priority) {
+        this.priority = priority;
+        return this;
     }
 }
