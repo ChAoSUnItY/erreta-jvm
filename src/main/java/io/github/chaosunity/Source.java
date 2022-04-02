@@ -22,6 +22,10 @@ public final class Source {
         this.text = text;
     }
 
+    public Source(@NotNull String id, @NotNull String text) {
+        this(id, id, text);
+    }
+
     @Contract("_ -> new")
     public @NotNull Triple<TextLine, Integer, Integer> getLineOffset(int offset) throws ErrataException {
         if (offset < 0) {
