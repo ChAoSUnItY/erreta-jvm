@@ -1,5 +1,7 @@
 package io.github.chaosunity;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -22,7 +24,8 @@ public final class TextLine {
         span = new TextSpan(this.offset, this.offset + length);
     }
 
-    public static List<TextLine> split(String text) {
+    @Contract("null -> fail")
+    public static @NotNull List<TextLine> split(String text) {
         if (text == null) {
             throw new IllegalArgumentException("Cannot split null string");
         }
