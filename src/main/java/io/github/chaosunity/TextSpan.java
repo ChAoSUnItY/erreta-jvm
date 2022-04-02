@@ -1,5 +1,7 @@
 package io.github.chaosunity;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Objects;
@@ -30,7 +32,7 @@ public final class TextSpan implements Iterable<Integer> {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(@Nullable Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TextSpan integers = (TextSpan) o;

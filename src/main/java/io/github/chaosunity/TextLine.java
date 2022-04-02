@@ -1,5 +1,7 @@
 package io.github.chaosunity;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,17 +13,11 @@ public final class TextLine {
     public int length;
     public TextSpan span;
 
-    /**
-     * @param index
-     * @param text
-     * @param offset
-     * @param @Nullable lineBreak
-     */
-    public TextLine(int index, String text, int offset, char[] lineBreak) {
+    public TextLine(int index, @Nullable String text, int offset, char @Nullable [] lineBreak) {
         this.index = index;
-        this.text = text == null ? "" : text;
+        this.text = text != null ? text : "";
         this.offset = offset;
-        this.lineBreak = lineBreak == null ? new char[]{} : lineBreak;
+        this.lineBreak = lineBreak != null ? lineBreak : new char[]{};
         length = this.text.length();
         span = new TextSpan(this.offset, this.offset + length);
     }
